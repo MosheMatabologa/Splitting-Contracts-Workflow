@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Enhanced Chatbot</title>
+    <style>
+        /* Improved UI styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f7;
+            margin: 0;
+            color: #333;
+        }
+        #chat-container {
+            width: 360px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            border-radius: 10px;
+            overflow: hidden;
+            background: #fff;
+        }
+        #chatbox {
+            width: 100%;
+            height: 450px;
+            border: none;
+            padding: 15px;
+            overflow-y: auto;
+            background-color: #fafafa;
+        }
+        #userInput, #sendButton {
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        #inputContainer {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background-color: #fff;
+        }
+        #sendButton {
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            cursor: pointer;
+            width: 90px;
+        }
+        #sendButton:hover {
+            background-color: #4cae4c;
+        }
+        .message {
+            margin-bottom: 15px;
+            padding: 10px 15px;
+            border-radius: 20px;
+            max-width: 75%;
+        }
+        .user {
+            background-color: #007bff;
+            color: white;
+            align-self: flex-end;
+        }
+        .bot {
+            background-color: #dddddd;
+            align-self: flex-start;
+        }
+    </style>
+</head>
+<body>
+    <div id="chat-container">
+        <div id="chatbox">
+            <!-- Chat messages will be appended here -->
+        </div>
+        <div id="inputContainer">
+            <input id="userInput" type="text" placeholder="Type a message...">
+            <button id="sendButton" onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        var conversationHistory = [];
+
+        function sendMessage() {
+            var input = document.getElementById('userInput');
+            var message = input.value.trim();
+            if (message === "") return;
+            input.value = '';
+
+            appendMessage('user', message);
+            conversationHistory.push({ sender: 'user', message: message });
+
+            var response = getBotResponse(message);
+            setTimeout(function() {
+                appendMessage('bot', response);
+                conversationHistory.push({ sender: 'bot', message: response });
+            }, 500);
+        }
+
+        function appendMessage(sender, message) {
+            var chatbox = document.getElementById('chatbox');
+            var messageDiv = document.createElement('div');
+            messageDiv.classList.add('message', sender);
+            messageDiv.innerHTML = '<strong>' + (sender === 'user' ? 'You' : 'Bot') + ':</strong> ' + message;
+            chatbox.appendChild(messageDiv);
+            chatbox.scrollTop = chatbox.scrollHeight;
+        }
+
+        function getBotResponse(message) {
+            // Implementing sentiment analysis and memory for context-aware responses
+            var lowerCaseMessage = message.toLowerCase();
+            var lastUserMessage = conversationHistory.length > 1 ? conversationHistory[conversationHistory.length - 2].message.toLowerCase() : '';
+
+            // Basic sentiment analysis
+            var positiveResponses = ['glad', 'happy', 'good', 'great', 'fantastic'];
+            var negativeResponses = ['sad', 'bad', 'unhappy', 'terrible', 'horrible'];
+            var sentiment = positiveResponses.some(r => lowerCaseMessage.includes(r)) ? 'positive' :
+                            negativeResponses.some(r => lowerCaseMessage.includes(r)) ? 'negative' : 'neutral';
+
+            // Context-aware responses based on sentiment and previous messages
+            var responses = {
+                'hello': 'Hi there! How can I assist you today?',
+                'how are you': 'I am just a bot, but I am functioning optimally! How about you?',
+                'what is your name': 'I am Copilot, your friendly chatbot.',
+                'who are you': 'I am a **BMW group chatbot** developed by **Moshe Matabologa**.',
+                'bye': 'Goodbye! It was nice chatting with you.',
+                // Add more responses and complex conversation handling here
+            };
+
+            var response = responses[lowerCaseMessage] || 'I am not sure how to respond to that. Can you ask something else?';
+
+            // Respond differently if the user seems to have a positive or negative sentiment
+            if (sentiment === 'positive' && lastUserMessage.includes('how are you')) {
+                response = 'I am glad to hear you are doing well!';
+            } else if (sentiment === 'negative' && lastUserMessage.includes('how are you')) {
+                response = 'I am sorry to hear that. How can I assist you further?';
+            }
+
+            return response;
+        }
+    </script>
+</body>
+</html>

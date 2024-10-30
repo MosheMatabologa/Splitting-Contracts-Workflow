@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMW Associate Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Existing styles... */
+        /* Additional styles for the file output options */
+        .output-options {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .output-options button {
+            margin: 0 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .output-options button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <!-- Existing body content... -->
+    <!-- File output options -->
+    <div class="output-options">
+        <button onclick="selectOutput('excel')">Excel</button>
+        <button onclick="selectOutput('csv')">CSV</button>
+        <button onclick="selectOutput('pdf')">PDF</button>
+    </div>
+
+    <script>
+        // JavaScript for drag and drop functionality
+        const dragArea = document.querySelector('.drag-area');
+        dragArea.addEventListener('dragover', (event) => {
+            event.preventDefault();
+            // Add hover styles
+            dragArea.style.backgroundColor = 'rgba(200, 200, 200, 0.8)';
+        });
+
+        dragArea.addEventListener('dragleave', () => {
+            // Revert hover styles
+            dragArea.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
+        });
+
+        dragArea.addEventListener('drop', (event) => {
+            event.preventDefault();
+            // Handle file drop
+            const files = event.dataTransfer.files;
+            console.log(files);
+            // Revert hover styles
+            dragArea.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
+        });
+
+        // Function to handle output selection
+        function selectOutput(type) {
+            console.log('Output type selected:', type);
+            // Implement functionality to process and download file in selected format
+        }
+    </script>
+</body>
+</html>

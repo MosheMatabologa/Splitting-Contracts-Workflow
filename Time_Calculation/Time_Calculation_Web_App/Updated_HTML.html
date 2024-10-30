@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMW Associate Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-image: url('https://tse4.mm.bing.net/th/id/OIG2.mOpzKzB2v9NdeY7BHdCN?pid=ImgGn');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+        }
+
+        /* Other styles... */
+
+        .header img {
+            display: block;
+            margin: 0 auto; /* Center the logo */
+            width: 150px;
+        }
+
+        /* Styles for the drag area and footer... */
+    </style>
+</head>
+<body>
+    <div class="header">
+        <!-- BMW logo centered at the top -->
+        <img src="BMW_logo.png" alt="BMW Logo"> <!-- Replace with the path to your BMW logo image -->
+        <h1>BMW Associate Portal</h1>
+    </div>
+
+    <!-- Drag and drop area and footer... -->
+
+    <script>
+        // JavaScript for drag and drop and button functionalities...
+
+        // Function to handle file selection via clicking
+        function handleFileSelect(event) {
+            const input = event.target;
+            if ('files' in input && input.files.length > 0) {
+                const file = input.files[0];
+                console.log('File selected:', file);
+                // You can perform further actions with the selected file here
+            }
+        }
+
+        // Add event listener to the file input element
+        document.getElementById('fileInput').addEventListener('change', handleFileSelect);
+
+        // Existing drag and drop and generateOutput functions...
+    </script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMW Associate Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-image: url('https://tse4.mm.bing.net/th/id/OIG2.mOpzKzB2v9NdeY7BHdCN?pid=ImgGn');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            color: #333; 
+        }
+
+        .header {
+            background-color: rgba(51, 51, 51, 0.8); 
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        .header img {
+            width: 150px; 
+        }
+
+        .drag-area {
+            border: 2px dashed #ccc;
+            border-radius: 5px;
+            padding: 60px;
+            text-align: center;
+            margin: 30px auto; 
+            background-color: rgba(255, 255, 255, 0.8); 
+            max-width: 500px; 
+        }
+
+        .drag-area:hover {
+            background-color: rgba(249, 249, 249, 0.8);
+        }
+
+        .drag-area p {
+            margin: 0;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .footer {
+            background-color: rgba(51, 51, 51, 0.8);
+            color: #fff;
+            text-align: center;
+            padding: 10px 20px;
+            position: fixed; 
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.bmwparkroyal.co.uk%2Fabout-us%2Fnews-events%2Fnews%2F50-years-of-bmw-m%2F&psig=AOvVaw1In1BU7ChcyDEtizS05MZM&ust=1715610004193000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCLjilrmniIYDFQAAAAAdAAAAABAE" alt="BMW Logo">
+        <h1>BMW Associate Portal</h1>
+    </div>
+
+    <div class="drag-area" id="dragArea">
+        <p>Drag and Drop Excel Document Here</p>
+    </div>
+
+    <div class="footer">
+        <button onclick="generateOutput('excel')">Export to Excel</button>
+        <button onclick="generateOutput('csv')">Export to CSV</button>
+        <button onclick="generateOutput('pdf')">Export to PDF</button>
+        <p>© 2024 BMW Group, All rights reserved.</p>
+    </div>
+
+    <script>
+        const dragArea = document.getElementById('dragArea');
+
+        dragArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dragArea.classList.add('active');
+        });
+
+        dragArea.addEventListener('dragleave', () => {
+            dragArea.classList.remove('active');
+        });
+
+        dragArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dragArea.classList.remove('active');
+            const file = e.dataTransfer.files[0];
+            console.log('File dropped:', file);
+            
+        });
+
+        function generateOutput(outputType) {
+            
+            console.log('Output type selected:', outputType);
+        }
+    </script>
+</body>
+</html>

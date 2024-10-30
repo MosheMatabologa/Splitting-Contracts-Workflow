@@ -1,0 +1,48 @@
+Dashboard
+
+- contractor steering Dashboard
+- establish:
+
+number of performance caes recieved in the last qurter, Jan - March, per department
+- also to get an idea of how they were recruited, direct refferals or reccomended by the tes
+
+- dept
+- perfomance type 
+- indicate closed cases, how quicckly is it to close the cases
+- the number of open caes and the number of closed cases, number of days
+- the reason is we want to see if there is a deep dive
+ --- is it management, is it a people
+
+Also another demo we have amongst dept
+
+
+Use the the recuitment tracker
+
+-- Age, Gender, Race 
+-- meeting Raymonde
+ask Earl to send data on diffrent dept fo
+
+two things needed from 
+
+we are gonna have monthly dashboard
+
+for all managers its performance topics year to date
+time to close
+all performance topics year to date 
+type of recruitment
+performance type
+per department in that department what type of terminations those 
+
+-- Perfomance tracker
+-- resource tracker
+-- Manatsa to get documents that source
+-- deadline : Tuesday
+
+
+
+Monthly
+just stuff above
+
+Perfromance tracker -- indicate, performance cases in last quarter 
+for now, Quarterly from Jan to April
+second quarter to date.

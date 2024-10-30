@@ -1,0 +1,12 @@
+#!/bin/bash
+
+doing  = input('Hello, How are you')
+if doing = ('Good' or 'good' or 'I/'m fine' or 'fine'):
+	else:
+	print(' I am sorry to hear that')
+
+
+input('Moshe has something he would like to tell you')
+
+Print('Moshe created me to tell you that he loves you')
+

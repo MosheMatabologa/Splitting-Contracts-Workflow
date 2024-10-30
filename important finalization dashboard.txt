@@ -1,0 +1,8 @@
+Reach out to Phum about order of the numbers.
+remove the percentages on pie chart
+
+Entry = 20
+Senior = 34
+Advanced = 33 
+Expert = 26 
+Chief expert = 6
